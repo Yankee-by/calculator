@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Калькулятор</title>
+	<link rel="shortcut icon" href="img/ico.ico" type="image/x-icon"/>
+	<style>
+		* {
+			margin: 0;
+    		padding: 0;
+		}
+		body {
+			font-size: 100%;
+			background-color: #fff;
+		}
+		#rightDiv {
+			margin-top: 34px;
+			margin-right: 67px;
+			margin-left: 25px;
+			float: right;
+		}
+		#leftDiv {
+			float: left;
+			margin-left: 20px;
+			margin-right: 25px;
+		}		
+		.textField {
+			margin-left: 319px;
+			margin-right: 319px;
+			background-color: #f1f1f1;
+    		border: 1px solid #f1f1f2;
+    		padding: 10px;
+    		text-align: center;
+            border-radius: 20px 20px 20px 20px;
+            font: bold 16px 'Times New Roman';
+            height: 355px;
+		}
+		#botDiv {
+			margin: 0 auto;
+		}
+		.sideBox{
+			display: table;
+		}
+		.allDiv{
+			width: 235px;
+			height: 240px;
+			border: 10px solid violet;
+			background-color:  white;
+			padding-top: 110px;
+			text-align: center;
+			font: bold 30px 'Times New Roman';
+		}
+		.noDiv {
+			width: 235px;
+			height: 350px;
+			border: none;
+		}
+		.bodyDiv {
+			background-position: left top;
+			background-image: url('images/divBg.jpg');
+			background-repeat:no-repeat;
+			position: relative;
+			margin: 0 auto;
+			padding-top: 130px;
+			width: 1281px;
+			height: 846px;
+		}
+		
+	</style>	
+</head>
+<body>
+<div class='bodyDiv'>
+	<div id='leftDiv' class="allDiv sideBox">Нажмите для интерграции в этот блок</div>
+	<div id='centerText' class="textField"><h2>Калькулятор</h2> <br/>Простой и компактный калькулятор, который спокойно разместится на вашем сайте. <br/><br/>Имеет внешний вид, схожий со встроенным в Windows 8.1. <br/><br/>Для развертывания достаточно передать методу calculateAll.show(DOM, path) DOM элемент в котором он будет размещаться (станет родителем). Path - путь к папке с файлами картинок фона (пример "../calculateImg"). По умолчанию эти файлы хранятся в 'img'</br>  Если методу не передавать DOM элемент, то калькулятор отрисуется в <strong>body</strong>. <br/><br/>Тело имеет точный размер (height: '312px', width: '215px'). <br/>Если вы хотите убрать его, то повторно вызовите calculateAll.show(DOM). <br/><br/>Тестировалось в Chrome 47, IE 11, Firefox 43 и Opera 12.17. <br/>Для работы необходима предзагрузка библиотеки <a href="http://www.jquery.com" target="_blank">jQuery.js</a>.
+	</div>	
+	<div id='rightDiv' class="allDiv">Нажмите для интерграции в этот блок</div>
+	
+</div>	
+	<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/jquery-2.1.4.js"><\/script>')</script>
+	<script src="js/data.js"></script>
+	<script>
+		$('.allDiv').on('click', function clickDiv() {
+			$('.allDiv')
+				.removeClass('allDiv')
+				.addClass('noDiv')
+				.text('');
+			calculateAll.show(this);
+			$('.noDiv').off('click', clickDiv);
+		});
+	</script>
+</body>
+</html>
